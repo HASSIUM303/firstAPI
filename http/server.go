@@ -43,7 +43,7 @@ func (s *HttpServer) Start() error {
 
 	router.
 		Path("/tasks/{title}").
-		Methods("PTCH").
+		Methods("PATCH").
 		HandlerFunc(s.httpHandlers.HandleCompleteTask)
 
 	router.
