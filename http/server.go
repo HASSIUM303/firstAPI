@@ -33,13 +33,13 @@ func (s *HttpServer) Start() error {
 	router.
 		Path("/tasks").
 		Methods("GET").
-		HandlerFunc(s.httpHandlers.HandleGetAllTasks)
+		Queries("completed", "false").
+		HandlerFunc(s.httpHandlers.HandleGetAllUncompletedTasks)
 
 	router.
 		Path("/tasks").
 		Methods("GET").
-		Queries("completed", "false").
-		HandlerFunc(s.httpHandlers.HandleGetAllUncompletedTasks)
+		HandlerFunc(s.httpHandlers.HandleGetAllTasks)
 
 	router.
 		Path("/tasks/{title}").
