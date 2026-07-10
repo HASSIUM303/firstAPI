@@ -191,5 +191,9 @@ func (h *HTTPHandlers) HandleDeleteTask(w http.ResponseWriter, r *http.Request) 
 		} else {
 			http.Error(w, errDTO.ToString(), http.StatusInternalServerError)
 		}
+
+		return
 	}
+
+	w.WriteHeader(http.StatusNoContent)
 }
